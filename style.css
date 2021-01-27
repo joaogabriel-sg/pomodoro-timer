@@ -1,0 +1,340 @@
+:root {
+  --light-color: #f0f0f0;
+  --dark-color: #1d1d1d;
+  --fields-bg-color: #e2e2e2;
+  --light-gray-color: #c8d6e5;
+  --gray-color: #a3a3a3;
+  --dark-gray-color: #5c5b5b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--primary-color);
+  transition: background 0.3s;
+}
+
+body.short-break-color {
+  --primary-color: #2e86de;
+  --secondary-color: #54a0ff;
+}
+
+body.long-break-color {
+  --primary-color: #10ac84;
+  --secondary-color: #1dd1a1;
+}
+
+body.pomodoro-color {
+  --primary-color: #ee5253;
+  --secondary-color: #ff6b6b;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 60rem;
+  padding: 0 1%;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 1.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo,
+.logo i {
+  font-size: 2rem;
+  color: var(--light-color);
+  transition: transform 0.3s;
+}
+
+.logo:hover i {
+  transform: scale(1.3);
+}
+
+.btn-settings {
+  background: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--light-color);
+  transition: all 0.5s;
+}
+
+.btn-settings:hover {
+  background: transparent;
+  border-color: var(--secondary-color);
+}
+
+.btn-settings i {
+  font-size: 1.4rem;
+  transition: transform 1s;
+}
+
+.btn-settings:hover i {
+  transform: rotate(360deg);
+}
+
+.progress-bar {
+  background: var(--secondary-color);
+  height: 0.2rem;
+  transition: background 0.3s;
+}
+
+.progress-bar .progress {
+  background: var(--light-color);
+  width: 0%;
+  height: 100%;
+}
+
+.main {
+  padding: 6.4rem 2rem 3.2rem;
+}
+
+.pomodoro-container {
+  background: var(--secondary-color);
+  width: 100%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.pomodoro-options {
+  display: flex;
+  justify-content: center;
+}
+
+.pomodoro-options button {
+  position: relative;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--light-color);
+  transition: background 0.5s;
+}
+
+.pomodoro-options button.active {
+  background: var(--primary-color);
+}
+
+.pomodoro-options button:not(.active)::after,
+.pomodoro-options button:not(.active)::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background: var(--light-color);
+  width: 0;
+  height: 0.2rem;
+  border-radius: 1rem;
+  transition: width 0.5s;
+}
+
+.pomodoro-options button:not(.active)::before {
+  left: 0; 
+}
+
+.pomodoro-options button:not(.active)::after {
+  right: 0;
+}
+
+.pomodoro-options button:not(.active):hover::after,
+.pomodoro-options button:not(.active):hover::before {
+  width: 100%;
+}
+
+.pomodoro-time {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 12rem;
+  color: var(--light-color);
+}
+
+.btn-start-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-start {
+  background: var(--light-color);
+  width: 100%;
+  max-width: 20rem;
+  height: 5rem;
+  border-bottom: 0.3rem solid var(--light-gray-color);
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: transform 0.3s;
+}
+
+.btn-start:active,
+.btn-start.active {
+  transform: translateY(0.3rem);
+  border: none;
+}
+
+.modal-settings {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-settings.active {
+  display: flex;
+}
+
+.settings {
+  background: var(--light-color);
+  width: 100%;
+  max-width: 40rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.settings-content {
+  padding: 1rem 2rem;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.settings-header h1,
+.settings-header i {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: var(--gray-color);
+  transition: color 0.3s;
+}
+
+.settings-header i:hover {
+  color: var(--dark-gray-color);
+}
+
+.setting {
+  padding-top: 1rem;
+  border-top: 0.1rem solid var(--gray-color);
+  margin-bottom: 1.6rem;
+}
+
+.setting h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  color: var(--dark-gray-color);
+}
+
+.setting-times {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting-time {
+  max-width: 10rem;
+}
+
+.setting-time h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: var(--gray-color);
+}
+
+.setting-time input {
+  background: var(--fields-bg-color);
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark-gray-color);
+  outline: none;
+}
+
+.settings-footer {
+  background: var(--gray-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 4rem;
+  padding: 0 2rem;
+}
+
+.btn-ok {
+  background: var(--dark-gray-color);
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--light-color);
+  transition: background 0.3s;
+}
+
+.btn-ok:hover {
+  background: var(--dark-color);
+}
+
+@media (max-width: 410px) {
+  .pomodoro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pomodoro-options {
+    order: 3;
+    flex-wrap: wrap;
+  }
+
+  .pomodoro-options button + button {
+    margin-top: 1.6rem;
+  }
+
+  .pomodoro-time {
+    order: -1;
+    margin-top: 0;
+    font-size: 6rem;
+  }
+
+  .btn-start {
+    order: 2;
+    margin-bottom: 2rem;
+  }
+}

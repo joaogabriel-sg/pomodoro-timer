@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="João Gabriel Silva Gomes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Pomotech</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="pomodoro-color">
+  <div class="container">
+    <header class="header">
+      <h1 class="logo"><i class="fas fa-brain"></i> Pomotech</h1>
+      <button class="btn-settings"><i class="fas fa-cog"></i> Settings</button>
+    </header>
+
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+
+    <main class="main">
+      <div class="pomodoro-container">
+        <div class="pomodoro">
+          <div class="pomodoro-options">
+            <button class="btn-pomodoro" data-option="0">Pomodoro</button>
+            <button class="btn-short-break" data-option="1">Short Break</button>
+            <button class="btn-long-break" data-option="2">Long Break</button>
+          </div>
+          <h1 class="pomodoro-time"></h1>
+          <div class="btn-start-container">
+            <button class="btn-start">Start</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="modal-settings">
+      <div class="settings">
+        <div class="settings-content">
+          <header class="settings-header">
+            <h1>Timer settings</h1>
+            <button class="btn-close"><i class="fas fa-times"></i></button>
+          </header>
+          <div class="setting">
+            <h2>Time (minutes)</h2>
+            <div class="setting-times">
+              <div class="setting-time">
+                <h3>Pomodoro</h3>
+                <input type="number" name="pomodoro" id="pomodoro" data-option="0" min="1">
+              </div>
+              <div class="setting-time">
+                <h3>Short break</h3>
+                <input type="number" name="short-break" id="short-break" data-option="1" min="1">
+              </div>
+              <div class="setting-time">
+                <h3>Long break</h3>
+                <input type="number" name="long-break" id="long-break" data-option="2" min="1">
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="settings-footer">
+          <button class="btn-ok">OK</button>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
